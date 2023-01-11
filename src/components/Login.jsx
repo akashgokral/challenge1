@@ -28,8 +28,8 @@ const Login = () => {
     }
 
     if (email.value !== '' && password.value !== '') {
-      toast('Login Success', {
-        position: "bottom-left",
+      toast.success('Login Success', {
+        position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -91,19 +91,6 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <ToastContainer
-            position="bottom-left"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-          />
-      
           <ToastContainer />
         </div>
       </div>
