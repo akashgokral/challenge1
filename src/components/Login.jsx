@@ -4,9 +4,15 @@ const Login = () => {
 
   return (
     <>
-      <div className="login_page container-fluid">
-        <div className="row">
+    {/* <div className="container">
+      <div className="row">
+
+      </div>
+    </div> */}
+      <div className="login_page">
+        <div className="bg_img">
           <img src="Rectangle 1.png" alt="bg_img" />
+          </div>
           <div>
             <div className="form">
               <div className="form_logo">
@@ -47,7 +53,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </div>
+     
     </>
 
   );
