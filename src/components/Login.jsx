@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,6 +9,8 @@ const Login = () => {
   const [emailError, setEmailError] = useState(false)
   const [passError, setPassError] = useState(false)
 
+  const ref = useRef(null)
+
   const validateForm = (e) => {
     e.preventDefault()
 
@@ -16,6 +18,7 @@ const Login = () => {
 
     if (email.value === '') {
       setEmailError(true)
+      ref.current.focus();
     }
     else {
       setEmailError(false)
@@ -37,7 +40,7 @@ const Login = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
+      });
       setemail('')
       setpass('')
     }
@@ -61,8 +64,8 @@ const Login = () => {
               <img src="form_bg.png" alt="form_bg_img" />
             </div>
             <div className="form_input mb-3 ">
-              <input type="email" placeholder="Email" onChange={(e) => setemail(e.target.value)} name='email' value={email} />
-              {emailError ? <p style={{ color: "red" }}><span className="me-2"><img src="validate.svg"></img></span>Email field is required</p> : null}
+              <input type="email" placeholder="Email" ref={ref } onChange={(e) => setemail(e.target.value)} name='email' value={email} />
+              {emailError ? <p style={{ color: "red" }} autoFocus><span className="me-2"><img src="validate.svg"></img></span>Email field is required</p> : null}
             </div>
             <div className="form_input mb-3">
               <input type="password" placeholder="Password" onChange={(e) => setpass(e.target.value)} name='password' value={pass} />
